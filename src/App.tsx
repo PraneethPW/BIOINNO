@@ -8,6 +8,7 @@ import Theme from "./components/Theme";
 import ThrustAreas from "./components/ThrustAreas";
 import ImportantDates from "./components/ImportantDates";
 import Registration from "./components/Registration";
+import AbstractSubmission from "./components/AbstractSubmission";
 import Accommodation from "./components/Accommodation";
 import OrganizingCommittee from "./components/OrganizingCommitte";
 import Venue from "./components/Venue";
@@ -17,40 +18,57 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50">
       <Navbar />
+
       <main className="pt-20">
         <section id="hero">
           <Hero />
         </section>
+
         <section id="about-kare" className="section">
           <AboutKare />
         </section>
+
         <section id="about-asu" className="section">
           <AboutASU />
         </section>
+
         <section id="about-iaam" className="section">
           <AboutIAAM />
         </section>
+
         <section id="theme" className="section">
           <Theme />
         </section>
+
         <section id="thrust-areas" className="section">
           <ThrustAreas />
         </section>
+
         <section id="dates" className="section">
           <ImportantDates />
         </section>
+
         <section id="registration" className="section">
           <Registration />
         </section>
+
+        {/* ✅ NEW ABSTRACT SUBMISSION SECTION */}
+        <section id="abstract-submission" className="section">
+          <AbstractSubmission />
+        </section>
+
         <section id="accommodation" className="section">
           <Accommodation />
         </section>
+
         <section id="committee" className="section">
           <OrganizingCommittee />
         </section>
+
         <section id="venue" className="section">
           <Venue />
         </section>
+
         <section id="contact" className="section">
           <Contact />
         </section>

@@ -46,8 +46,6 @@ const OrganizingCommittee: React.FC = () => {
       ],
       color: "from-indigo-500/20 to-indigo-600/20"
     },
-
-    // ✅ UPDATED: Joint Secretaries ONLY
     {
       title: "Joint Secretaries",
       members: [
@@ -56,8 +54,6 @@ const OrganizingCommittee: React.FC = () => {
       ],
       color: "from-rose-500/20 to-rose-600/20"
     },
-
-    // ⭐ NEW: Treasurer section
     {
       title: "Treasurer",
       members: [
@@ -65,15 +61,16 @@ const OrganizingCommittee: React.FC = () => {
       ],
       color: "from-fuchsia-500/20 to-fuchsia-600/20"
     },
-
     {
       title: "Research Advisory Committee",
-      members: [
-        "Shwetal Mehta, PhD",
-        "Professor, Department of Translational Neuroscience",
-        "Deputy Director, IVY Brain Tumor Center",
-        "Barrow Neurological Institute, Phoenix, AZ, USA"
-      ],
+      profile: {
+        name: "Shwetal Mehta, PhD",
+        details: [
+          "Professor, Department of Translational Neuroscience",
+          "Deputy Director, IVY Brain Tumor Center",
+          "Barrow Neurological Institute, Phoenix, AZ, USA"
+        ]
+      },
       color: "from-cyan-500/20 to-teal-600/20"
     }
   ];
@@ -98,18 +95,38 @@ const OrganizingCommittee: React.FC = () => {
               {committee.title}
             </h3>
 
-            {/* Members */}
-            <ul className="space-y-2 text-sm text-slate-200">
-              {committee.members.map((member, i) => (
-                <li
-                  key={i}
-                  className="group-hover:text-slate-100 flex items-center gap-2"
-                >
+            {/* STANDARD BULLET LIST */}
+            {committee.members && (
+              <ul className="space-y-2 text-sm text-slate-200">
+                {committee.members.map((member, i) => (
+                  <li
+                    key={i}
+                    className="group-hover:text-slate-100 flex items-center gap-2"
+                  >
+                    <div className="w-2 h-2 bg-emerald-400 rounded-full group-hover:scale-125 transition-transform" />
+                    <span>{member}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {/* SINGLE PROFILE (WITH BULLET DOT) */}
+            {committee.profile && (
+              <div className="space-y-2 text-sm text-slate-200">
+                <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-emerald-400 rounded-full group-hover:scale-125 transition-transform" />
-                  <span>{member}</span>
-                </li>
-              ))}
-            </ul>
+                  <p className="font-semibold text-slate-100">
+                    {committee.profile.name}
+                  </p>
+                </div>
+
+                {committee.profile.details.map((line, i) => (
+                  <p key={i} className="text-slate-300 pl-4">
+                    {line}
+                  </p>
+                ))}
+              </div>
+            )}
           </div>
         ))}
       </div>
